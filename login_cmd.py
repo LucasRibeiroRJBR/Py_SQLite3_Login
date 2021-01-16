@@ -2,6 +2,16 @@ from tkinter import *
 import tkinter.ttk as ttk
 import sqlite3
 
+def login():
+    with sqlite3.connect('login.db') as db:
+        c = db.cursor()
+
+    find_user = "SELECT * FROM users WHERE user = ? AND password = ?"
+
+    c.execute(find_user[()])
+
+    
+
 root = Tk()
 root.title('SQ System')
 
@@ -10,8 +20,16 @@ img_login = PhotoImage(file="img/login.png")
 img_user = PhotoImage(file="img/user.png")
 img_password = PhotoImage(file="img/password.png")
 
-lb_login = Label(root, image=img_login)
-lb_login.grid(row = 0, columnspan = 2)
+lb_logo = Label(root, image=img_login)
+lb_logo.grid(row = 0, columnspan = 2)
+
+lb_login = Label(root, image = img_user)
+lb_login.grid(row = 1, column = 0)
+
+lb_password = Label(root, image = img_password)
+lb_password.grid(row = 2, column = 0)
+
+
 
 root.mainloop()
 
